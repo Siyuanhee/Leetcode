@@ -12,22 +12,26 @@ public class pow {
             return 1;
         }
 
-        int count = 1;
-        double result = x;
+        if(x == -1 && n % 2 == 0){
+            return 1;
+        }
 
         if(n < 0){
-            n = -n;
+            if (n == Integer.MIN_VALUE) {
+                n = Integer.MAX_VALUE;
+            }else{
+                n = -n;
+            }
+
             x = 1/x;
+
         }
 
         if(n % 2 == 0){
             return myPow(x * x,n / 2);
-        }else{
-            return x * myPow(x*x, (n-1)/2);
+        }else {
+            return x * myPow(x * x, (n - 1) / 2);
         }
-
-        // return 0;
-
     }
 
 }
